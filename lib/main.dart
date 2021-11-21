@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_product_card/data.dart';
+import 'package:glassmorphism_product_card/responsive.dart';
 import 'package:glassmorphism_product_card/widgets/custom_clipper.dart';
 import 'package:glassmorphism_product_card/widgets/shoes_card.dart';
 
@@ -28,6 +29,20 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int crossAxisCount = 1;
+    double kPadding = 64;
+
+    if (Responsive.isDesktop(context)) {
+      crossAxisCount = 4;
+    } else if (Responsive.isLargeTablet(context)) {
+      crossAxisCount = 2;
+    } else if (Responsive.isTablet(context)) {
+      crossAxisCount = 2;
+      kPadding = 32;
+    } else {
+      crossAxisCount = 1;
+    }
+
     return Scaffold(
       backgroundColor: Colors.black.withOpacity(0.8),
       body: SafeArea(
@@ -53,11 +68,11 @@ class HomeScreen extends StatelessWidget {
             Center(
               child: GridView.count(
                 shrinkWrap: true, // fixed center
-                crossAxisCount: 1,
+                crossAxisCount: crossAxisCount,
                 childAspectRatio: 0.6,
-                padding: const EdgeInsets.all(64),
-                crossAxisSpacing: 64,
-                mainAxisSpacing: 64,
+                padding: EdgeInsets.all(kPadding),
+                crossAxisSpacing: kPadding,
+                mainAxisSpacing: kPadding,
                 children: [
                   ...shoesImageUrls.map((e) => ShoesCard(shoesImageUrl: e)),
                 ],
