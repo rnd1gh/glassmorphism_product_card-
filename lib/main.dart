@@ -1,8 +1,14 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:glassmorphism_product_card/data.dart';
+import 'package:glassmorphism_product_card/widgets/buynow_button.dart';
+import 'package:glassmorphism_product_card/widgets/color_button.dart';
 import 'package:glassmorphism_product_card/widgets/custom_clipper.dart';
 import 'package:glassmorphism_product_card/widgets/glassmorphism.dart';
+import 'package:glassmorphism_product_card/widgets/shoes_card.dart';
+import 'package:glassmorphism_product_card/widgets/size_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,24 +60,13 @@ class HomeScreen extends StatelessWidget {
             Center(
               child: GridView.count(
                 shrinkWrap: true, // fixed center
-                crossAxisCount: 4,
+                crossAxisCount: 1,
                 childAspectRatio: 0.6,
                 padding: const EdgeInsets.all(32),
                 crossAxisSpacing: 32,
                 mainAxisSpacing: 32,
                 children: [
-                  Card(
-                    color: Colors.transparent,
-                    child: Stack(
-                      children: const [
-                        // add glassmorphism effect
-                        Glassmorphism(),
-                      ],
-                    ),
-                  ),
-                  Card(),
-                  Card(),
-                  Card(),
+                  ...shoesImageUrls.map((e) => ShoesCard(shoesImageUrl: e)),
                 ],
               ),
             )
