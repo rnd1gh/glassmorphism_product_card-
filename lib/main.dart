@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glassmorphism_product_card/widgets/custom_clipper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Glassmorphism Product Card',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -25,7 +27,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      backgroundColor: Colors.black.withOpacity(0.8),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            ClipPath(
+              clipper: BottomClipper(),
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                color: Colors.blue[400],
+              ),
+            ),
+            ClipPath(
+              clipper: TopClipper(),
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                color: Colors.red[600],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
