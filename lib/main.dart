@@ -62,9 +62,9 @@ class HomeScreen extends StatelessWidget {
                 shrinkWrap: true, // fixed center
                 crossAxisCount: 1,
                 childAspectRatio: 0.6,
-                padding: const EdgeInsets.all(32),
-                crossAxisSpacing: 32,
-                mainAxisSpacing: 32,
+                padding: const EdgeInsets.all(64),
+                crossAxisSpacing: 64,
+                mainAxisSpacing: 64,
                 children: [
                   ...shoesImageUrls.map((e) => ShoesCard(shoesImageUrl: e)),
                 ],
