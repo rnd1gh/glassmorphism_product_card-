@@ -1,14 +1,7 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:glassmorphism_product_card/data.dart';
-import 'package:glassmorphism_product_card/widgets/buynow_button.dart';
-import 'package:glassmorphism_product_card/widgets/color_button.dart';
 import 'package:glassmorphism_product_card/widgets/custom_clipper.dart';
-import 'package:glassmorphism_product_card/widgets/glassmorphism.dart';
 import 'package:glassmorphism_product_card/widgets/shoes_card.dart';
-import 'package:glassmorphism_product_card/widgets/size_button.dart';
 
 void main() {
   runApp(const MyApp());
